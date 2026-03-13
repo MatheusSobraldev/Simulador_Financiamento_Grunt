@@ -21,6 +21,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
 
 body {
     font-family: @fonte-principal;
@@ -43,7 +48,7 @@ select {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 48px 20px 60px;
+    padding: 24px 14px 36px;
 }
 
 .apresentacao {
@@ -80,6 +85,7 @@ select {
     border-radius: @radius-lg;
     box-shadow: 0 20px 50px @cor-sombra;
     backdrop-filter: blur(6px);
+    min-width: 0;
 }
 
 .formulario {
@@ -177,7 +183,6 @@ select {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
-    margin-bottom: 28px;
 }
 
 .card {
@@ -220,6 +225,10 @@ select {
 
 .tabela-box {
     margin-top: 10px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 
     h3 {
         font-size: 1.2rem;
@@ -230,6 +239,7 @@ select {
 
     table {
         width: 100%;
+        min-width: 600px;
         border-collapse: collapse;
         overflow: hidden;
         border-radius: @radius-md;
@@ -247,6 +257,7 @@ select {
             padding: 14px 16px;
             font-weight: 700;
             border-bottom: 1px solid @cor-borda;
+            white-space: nowrap;
         }
     }
 
@@ -268,6 +279,7 @@ select {
             border-bottom: 1px solid #edf2f7;
             color: @cor-texto;
             font-size: 0.95rem;
+            white-space: nowrap;
         }
     }
 }
@@ -322,5 +334,8 @@ select {
     .campo select,
     .acoes button {
         height: 46px;
+    }
+    .tabela-box table {
+        min-width: 520px;
     }
 }
