@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const botaoCalcular = document.getElementById('calcular');
 
     botaoCalcular.addEventListener('click', function () {
-        const valorImovel = Number(document.getElementById('valor-imovel').value);
-        const entrada = Number(document.getElementById('entrada').value);
+        const valorImovel = converterValorMonetario(document.getElementById('valor-imovel').value);
+        const entrada = converterValorMonetario(document.getElementById('entrada').value);
         const prazoAnos = Number(document.getElementById('prazo').value);
         const jurosAnual = Number(document.getElementById('juros-anual').value);
-        const rendaMensal = Number(document.getElementById('renda-mensal').value);
+        const rendaMensal = converterValorMonetario(document.getElementById('renda-mensal').value);
         const sistema = document.getElementById('sistema').value;
 
         const mensagemErro = document.getElementById('mensagem-erro');
@@ -254,4 +254,30 @@ document.addEventListener('DOMContentLoaded', function () {
             currency: 'BRL'
         });
     }
+
+    function converterValorMonetario(valor) {
+    return Number(valor.replace(/\./g, '').replace(',', '.'));
+}
+
+function formatarCampoMoeda(input) {
+    let valor = input.value.replace(/\D/g, '');
+
+    if (!valor) {
+        input.value = '';
+        return;
+    }
+
+    input.value = Number(valor).toLocaleString('pt-BR');
+}
+const camposMoeda = [
+    document.getElementById('valor-imovel'),
+    document.getElementById('entrada'),
+    document.getElementById('renda-mensal')
+];
+
+camposMoeda.forEach(function (campo) {
+    campo.addEventListener('input', function () {
+        formatarCampoMoeda(campo);
+    });
+});
 });
