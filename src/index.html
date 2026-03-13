@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Financiamento Imobiliário</title>
+    <link rel="stylesheet" href="@@ENDERECO_DO_CSS">
+</head>
+<body>
+    <main class="container">
+        <section class="apresentacao">
+            <h1>Simulador de financiamento imobiliário</h1>
+            <p>
+                Simule o financiamento da sua casa e planeje seu futuro com mais segurança.
+                Informe os dados abaixo para calcular parcelas, valor total pago, juros e a
+                renda mínima recomendada.
+            </p>
+        </section>
+
+        <section class="simulador-box">
+            <form id="simulador-form" class="formulario">
+                <div class="campo">
+                    <label for="valor-imovel">Valor do imóvel</label>
+                    <input type="number" id="valor-imovel" placeholder="Ex: 300.000" min="0">
+                </div>
+
+                <div class="campo">
+                    <label for="entrada">Entrada</label>
+                    <input type="number" id="entrada" placeholder="Ex: 60.000" min="0">
+                </div>
+
+                <div class="campo">
+                    <label for="prazo">Prazo (anos)</label>
+                    <input type="number" id="prazo" placeholder="Ex: 30" min="1">
+                </div>
+
+                <div class="campo">
+                    <label for="juros-anual">Juros anual (%)</label>
+                    <input type="number" id="juros-anual" placeholder="Ex: 10.5" min="0" step="0.01">
+                </div>
+
+                <div class="campo">
+                    <label for="renda-mensal">Renda mensal</label>
+                    <input type="number" id="renda-mensal" placeholder="Ex: 8.000" min="0">
+                </div>
+
+                <div class="campo">
+                    <label for="sistema">Sistema de amortização</label>
+                    <select id="sistema">
+                        <option value="price">Price</option>
+                        <option value="sac">SAC</option>
+                    </select>
+                </div>
+
+                <div class="acoes">
+                    <button type="button" id="calcular">Simular financiamento</button>
+                </div>
+
+                <p id="mensagem-erro" class="mensagem-erro"></p>
+            </form>
+
+            <section id="resultado" class="resultado">
+                <h2>Resultado da simulação</h2>
+
+                <div class="cards-resultado">
+                    <div class="card">
+                        <h3>Valor financiado</h3>
+                        <p id="valor-financiado">R$ 0,00</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Parcela inicial</h3>
+                        <p id="parcela-inicial">R$ 0,00</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Total pago</h3>
+                        <p id="total-pago">R$ 0,00</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Total de juros</h3>
+                        <p id="juros-total">R$ 0,00</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Renda mínima recomendada</h3>
+                        <p id="renda-minima">R$ 0,00</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Situação da renda</h3>
+                        <p id="situacao-renda">---</p>
+                    </div>
+                </div>
+
+                <div class="tabela-box">
+                    <h3>Primeiras parcelas</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parcela</th>
+                                <th>Prestação</th>
+                                <th>Amortização</th>
+                                <th>Juros</th>
+                                <th>Saldo devedor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-parcelas">
+                            <tr>
+                                <td colspan="5">Nenhuma simulação realizada.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="@@ENDERECO_DO_JS"></script>
+</body>
+</html>
