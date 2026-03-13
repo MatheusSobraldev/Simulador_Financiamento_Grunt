@@ -84,8 +84,6 @@ select {
 
 .formulario {
     padding: 28px;
-    position: sticky;
-    top: 20px;
 }
 
 .campo {
@@ -279,18 +277,15 @@ select {
         grid-template-columns: 1fr;
     }
 
-    .formulario {
-        position: static;
-    }
-
     .cards-resultado {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+
 @media (max-width: 640px) {
     .container {
-        padding: 28px 14px 40px;
+        padding: 24px 14px 36px;
     }
 
     .apresentacao {
@@ -301,14 +296,14 @@ select {
         }
 
         p {
-            font-size: 0.98rem;
+            font-size: 0.95rem;
         }
     }
 
     .formulario,
     .resultado {
-        padding: 20px;
-        border-radius: 20px;
+        padding: 18px;
+        border-radius: 18px;
     }
 
     .cards-resultado {
@@ -316,14 +311,16 @@ select {
     }
 
     .card p {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
-    .tabela-box {
-        overflow-x: auto;
+    .campo {
+        margin-bottom: 14px;
+    }
 
-        table {
-            min-width: 700px;
-        }
+    .campo input,
+    .campo select,
+    .acoes button {
+        height: 46px;
     }
 }
